@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <br>
+  <br />
   <div class="container">
     <h4>{{ title }}</h4>
     <form id="form" class="form" #f="ngForm" (ngSubmit)="onSubmit(usuario)">
@@ -8,21 +8,45 @@
       </div>
       <div class="white-box">
         <div class="row">
-          <div class="col-9">
+          <div class="col-lg-9">
             <div class="form-group" [ngClass]="applyCssError(nome)">
               <label for="nome">Nome completo *</label>
-              <input type="text" class="form-control" id="nome" name="nome" placeholder="insira o seu nome completo"
-                [(ngModel)]="usuario.nome" required #nome="ngModel">
-              <app-control-camp [showError]="verifyValidTouched(nome)" msgError="Nome é obrigatório.">
+              <input
+                type="text"
+                class="form-control"
+                id="nome"
+                name="nome"
+                placeholder="insira o seu nome completo"
+                [(ngModel)]="usuario.nome"
+                required
+                #nome="ngModel"
+              />
+              <app-control-camp
+                [showError]="verifyValidTouched(nome)"
+                msgError="Nome é obrigatório."
+              >
               </app-control-camp>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-lg-3">
             <div class="form-group" [ngClass]="applyCssError(cpf)">
               <label for="cpf">CPF *</label>
-              <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF" mask="000.000.000-00"
-                [(ngModel)]="usuario.cpf" required cpf #cpf="ngModel">
-              <app-control-camp [showError]="verifyValidTouched(cpf)" msgError="CPF é obrigatório.">
+              <input
+                type="text"
+                class="form-control"
+                id="cpf"
+                name="cpf"
+                placeholder="CPF"
+                mask="000.000.000-00"
+                [(ngModel)]="usuario.cpf"
+                required
+                cpf
+                #cpf="ngModel"
+              />
+              <app-control-camp
+                [showError]="verifyValidTouched(cpf)"
+                msgError="CPF é obrigatório."
+              >
               </app-control-camp>
             </div>
           </div>
@@ -36,20 +60,52 @@
             <div class="form-group">
               <div class="radio-button-age">
                 <div class="form-check form-check-inline ml-2">
-                  <input class="form-check-input" type="radio" name="radiobuttom" id="radioage1" value="radioage1">
-                  <label class="form-check-label" for="radioage1">Menos de 15 anos</label>
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="radiobuttom"
+                    id="radioage1"
+                    value="radioage1"
+                  />
+                  <label class="form-check-label" for="radioage1"
+                    >Menos de 15 anos</label
+                  >
                 </div>
                 <div class="form-check form-check-inline ml-2">
-                  <input class="form-check-input" type="radio" name="radiobuttom" id="radioage2" value="radioage2">
-                  <label class="form-check-label" for="radioage2">Entre 15 e 18 anos</label>
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="radiobuttom"
+                    id="radioage2"
+                    value="radioage2"
+                  />
+                  <label class="form-check-label" for="radioage2"
+                    >Entre 15 e 18 anos</label
+                  >
                 </div>
                 <div class="form-check form-check-inline ml-2">
-                  <input class="form-check-input" type="radio" name="radiobuttom" id="radioage3" value="radioage3">
-                  <label class="form-check-label" for="radioage3">Entre 18 e 30 anos</label>
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="radiobuttom"
+                    id="radioage3"
+                    value="radioage3"
+                  />
+                  <label class="form-check-label" for="radioage3"
+                    >Entre 18 e 30 anos</label
+                  >
                 </div>
                 <div class="form-check form-check-inline ml-2">
-                  <input class="form-check-input" type="radio" name="radiobuttom" id="radioage4" value="radioage4">
-                  <label class="form-check-label" for="radioage4">Acima de 30 anos</label>
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="radiobuttom"
+                    id="radioage4"
+                    value="radioage4"
+                  />
+                  <label class="form-check-label" for="radioage4"
+                    >Acima de 30 anos</label
+                  >
                 </div>
               </div>
             </div>
@@ -57,122 +113,254 @@
         </div>
 
         <div class="row">
-          <div class="col-2">
+          <div class="col-md-2">
             <div class="form-group" [ngClass]="applyCssError(cep)">
               <label for="cep">CEP *</label>
-              <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP" [(ngModel)]="usuario.cep"
-                required cep #cep="ngModel" value="cep" (blur)="searchCEP($event)" mask="00000-000">
-              <app-control-camp [showError]="verifyValidTouched(cep)" msgError="CEP é obrigatório.">
+              <input
+                type="text"
+                class="form-control"
+                id="cep"
+                name="cep"
+                placeholder="CEP"
+                [(ngModel)]="usuario.cep"
+                required
+                cep
+                #cep="ngModel"
+                value="cep"
+                (blur)="searchCEP($event)"
+                mask="00000-000"
+              />
+              <app-control-camp
+                [showError]="verifyValidTouched(cep)"
+                msgError="CEP é obrigatório."
+              >
               </app-control-camp>
             </div>
           </div>
-          <div class="col-5">
+          <div class="col-md-5">
             <div class="form-group" [ngClass]="applyCssError(rua)">
               <label for="rua">Endereço *</label>
-              <input type="text" class="form-control" id="rua" name="rua" placeholder="endereço" [ngModel]="usuario.rua"
-                required #rua="ngModel">
-              <app-control-camp [showError]="verifyValidTouched(rua)" msgError="Endereço é obrigatório.">
+              <input
+                type="text"
+                class="form-control"
+                id="rua"
+                name="rua"
+                placeholder="endereço"
+                [ngModel]="usuario.rua"
+                required
+                #rua="ngModel"
+              />
+              <app-control-camp
+                [showError]="verifyValidTouched(rua)"
+                msgError="Endereço é obrigatório."
+              >
               </app-control-camp>
             </div>
           </div>
-          <div class="col-2">
+          <div class="col-md-2">
             <div class="form-group" [ngClass]="applyCssError(numero)">
               <label for="numero">Número *</label>
-              <input type="text" class="form-control" id="numero" name="numero" placeholder="número"
-                [(ngModel)]="usuario.numero" required numero #numero="ngModel">
-              <app-control-camp [showError]="verifyValidTouched(numero)" msgError="Número é obrigatório.">
+              <input
+                type="text"
+                class="form-control"
+                id="numero"
+                name="numero"
+                placeholder="número"
+                [(ngModel)]="usuario.numero"
+                required
+                numero
+                #numero="ngModel"
+              />
+              <app-control-camp
+                [showError]="verifyValidTouched(numero)"
+                msgError="Número é obrigatório."
+              >
               </app-control-camp>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-md-3">
             <div class="form-group">
               <label for="complemento">Complemento</label>
-              <input type="text" class="form-control" id="complemento" name="complemento" placeholder="complemento"
-                [ngModel]="usuario.complemento" complemento #complemento="ngModel">
+              <input
+                type="text"
+                class="form-control"
+                id="complemento"
+                name="complemento"
+                placeholder="complemento"
+                [ngModel]="usuario.complemento"
+                complemento
+                #complemento="ngModel"
+              />
             </div>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-3">
+          <div class="col-md-3">
             <div class="form-group" [ngClass]="applyCssError(bairro)">
               <label for="bairro">Bairro *</label>
-              <input type="text" class="form-control " id="bairro" name="bairro" placeholder="bairro"
-                [ngModel]="usuario.bairro" required bairro #bairro="ngModel">
-              <app-control-camp [showError]="verifyValidTouched(bairro)" msgError="Bairro é obrigatório.">
+              <input
+                type="text"
+                class="form-control"
+                id="bairro"
+                name="bairro"
+                placeholder="bairro"
+                [ngModel]="usuario.bairro"
+                required
+                bairro
+                #bairro="ngModel"
+              />
+              <app-control-camp
+                [showError]="verifyValidTouched(bairro)"
+                msgError="Bairro é obrigatório."
+              >
               </app-control-camp>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-md-3">
             <div class="form-group">
               <label for="estado">Estado *</label>
-              <select class="custom-select" id="estado" name="estado" [(ngModel)]="usuario.estado" required estado
-                #estado="ngModel" (change)="brazilianCities(estado.value)">
+              <select
+                class="custom-select"
+                id="estado"
+                name="estado"
+                [(ngModel)]="usuario.estado"
+                required
+                estado
+                #estado="ngModel"
+                (change)="brazilianCities(estado.value)"
+              >
                 <option value="" disabled selected>Selecione a UF</option>
-                <option *ngFor="let estado of estados" [value]="estado.sigla">{{estado.nome}}</option>
+                <option *ngFor="let estado of estados" [value]="estado.sigla">
+                  {{ estado.nome }}
+                </option>
               </select>
-              <app-control-camp [showError]="verifyValidTouched(estado)" msgError="Estado é obrigatório.">
+              <app-control-camp
+                [showError]="verifyValidTouched(estado)"
+                msgError="Estado é obrigatório."
+              >
               </app-control-camp>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-md-6">
             <div class="form-group">
               <label for="cidade">Cidade *</label>
-              <select class="custom-select" id="cidade" name="cidade" [(ngModel)]="usuario.cidade" required
-                #cidade="ngModel">
+              <select
+                class="custom-select"
+                id="cidade"
+                name="cidade"
+                [(ngModel)]="usuario.cidade"
+                required
+                #cidade="ngModel"
+              >
                 <option value="" disabled selected>Selecione a cidade</option>
-                <option *ngFor="let cidadeSelect of cidades" [ngValue]="cidadeSelect">{{cidadeSelect.nome}}</option>
+                <option
+                  *ngFor="let cidadeSelect of cidades"
+                  [ngValue]="cidadeSelect"
+                >
+                  {{ cidadeSelect.nome }}
+                </option>
               </select>
-              <app-control-camp [showError]="verifyValidTouched(cidade)" msgError="Cidade é obrigatório.">
+              <app-control-camp
+                [showError]="verifyValidTouched(cidade)"
+                msgError="Cidade é obrigatório."
+              >
               </app-control-camp>
             </div>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-3">
+          <div class="col-md-3">
             <div class="form-group">
               <label for="telefone">Telefone fixo *</label>
-              <input type="text" class="form-control" id="telefone" name="telefone" [ngModel]="usuario.telefone"
-                required telefone #telefone="ngModel" placeholder="+55 (00) 0000-0000" prefix="+55 " mask="(00) 0000-0000">
-              <app-control-camp [showError]="verifyValidTouched(telefone)" msgError="Telefone fixo é obrigatório.">
+              <input
+                type="text"
+                class="form-control"
+                id="telefone"
+                name="telefone"
+                [ngModel]="usuario.telefone"
+                required
+                telefone
+                #telefone="ngModel"
+                placeholder="+55 (00) 0000-0000"
+                prefix="+55 "
+                mask="(00) 0000-0000"
+              />
+              <app-control-camp
+                [showError]="verifyValidTouched(telefone)"
+                msgError="Telefone fixo é obrigatório."
+              >
               </app-control-camp>
             </div>
           </div>
-          <div class="col-3">
+          <div class="col-md-3">
             <div class="form-group">
               <label for="celular">Telefone celular *</label>
-              <input type="text" class="form-control" id="celular" name="celular" [ngModel]="usuario.celular" required
-                celular #celular="ngModel" placeholder="+55 (00) 00000-0000" prefix="+55 " mask="(00) 00000-0000">
-              <app-control-camp [showError]="verifyValidTouched(celular)" msgError="Telefone celular é obrigatório.">
+              <input
+                type="text"
+                class="form-control"
+                id="celular"
+                name="celular"
+                [ngModel]="usuario.celular"
+                required
+                celular
+                #celular="ngModel"
+                placeholder="+55 (00) 00000-0000"
+                prefix="+55 "
+                mask="(00) 00000-0000"
+              />
+              <app-control-camp
+                [showError]="verifyValidTouched(celular)"
+                msgError="Telefone celular é obrigatório."
+              >
               </app-control-camp>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-md-6">
             <div class="form-group" [ngClass]="applyCssError(email)">
               <label for="email">E-mail *</label>
-              <input type="email" class="form-control" id="email" name="email" placeholder="insira seu email"
-                [(ngModel)]="usuario.email" required email #email="ngModel">
-              <app-control-camp [showError]="verifyValidTouched(email)" msgError="E-mail é obrigatório.">
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="insira seu email"
+                [(ngModel)]="usuario.email"
+                required
+                email
+                #email="ngModel"
+              />
+              <app-control-camp
+                [showError]="verifyValidTouched(email)"
+                msgError="E-mail é obrigatório."
+              >
               </app-control-camp>
             </div>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-lg-12">
             <div class="form-group">
               <label for="exampleInputEmail1">Mensagem (opcional)</label>
-              <textarea class="form-control text-area-form" id="description" name="description" rows="3"
-                placeholder="insira aqui uma mensagem opcional, de até 240 caracteres" maxlength="240"
-                [(ngModel)]="message.description" [ngModel]="usuario.description"></textarea>
+              <textarea
+                class="form-control text-area-form"
+                id="description"
+                name="description"
+                rows="3"
+                placeholder="insira aqui uma mensagem opcional, de até 240 caracteres"
+                maxlength="240"
+                [(ngModel)]="message.description"
+                [ngModel]="usuario.description"
+              ></textarea>
               <div class="form-row__description float-right mt-3">
-                <strong>{{ message.description.length }}</strong> de <strong>240</strong> caracteres
+                <strong>{{ message.description.length }}</strong> de
+                <strong>240</strong> caracteres
               </div>
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="row">
@@ -180,14 +368,24 @@
           <p>campos com * são obrigatórios e devem estar no formato adequado</p>
         </div>
         <div class="col-6">
-          <button type="submit" class="btn btn-primary float-right ml-3" [disabled]="!f.valid">Enviar</button>
-          <button type="button" class="btn btn-light float-right" (click)="clearFilter()">Limpar tudo</button>
+          <button
+            type="submit"
+            class="btn btn-primary float-right ml-3"
+            [disabled]="!f.valid"
+          >
+            Enviar
+          </button>
+          <button
+            type="button"
+            class="btn btn-light float-right"
+            (click)="clearFilter()"
+          >
+            Limpar tudo
+          </button>
         </div>
       </div>
-
     </form>
   </div>
   <app-table [form]="formData"></app-table>
-  <br>
-
+  <br />
 </div>
